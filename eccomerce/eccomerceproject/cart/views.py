@@ -27,8 +27,8 @@ def add_cart(request,product_id):
     try:
         cart_item=CartItem.objects.get(Product=Product,cart=cart)
         if cart_item.quantity < cart_item.Product.stock:
-        cart_item.quantity += 1
-        cart_item.save()
+            cart_item.quantity += 1
+            cart_item.save()
     except CartItem.DoesNotExist:
         cart_item=CartItem.objects.create(
             Product=Product,
